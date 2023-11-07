@@ -5,3 +5,13 @@ const promise = new Promise(function (resolve, reject) {
 });
 
 promise.then(() => console.log("then"));
+
+const one = () => Promise.resolve("one");
+
+async function two() {
+  const res = await one();
+  console.log(res);
+  console.log("ok");
+}
+
+two();
