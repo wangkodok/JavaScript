@@ -31,3 +31,28 @@ Promise.resolve()
   });
 
 console.log("end");
+
+setTimeout(() => {
+  console.log("end");
+  Promise.resolve()
+    .then(function () {
+      console.log("setTimeout promise1");
+    })
+    .then(function () {
+      console.log("setTimeout promise2");
+    });
+}, 0);
+
+console.log("start");
+
+Promise.resolve()
+  .then(function () {
+    setTimeout(() => {
+      console.log("promise setTimeout1");
+    }, 0);
+  })
+  .then(function () {
+    console.log("promise setTimeout2");
+  });
+
+console.log("start");
